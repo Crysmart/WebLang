@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/foo">foo</router-link>
+        <router-link to="/bar">bar</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+        var Foo = { template: '<h1>FOOOOOOO</h1>' }
+        var Bar = { template: '<h1>Barrrrrr</h1>' }
+
+        var router = new VueRouter({
+            routers: [
+                { path: '/foo', component: Foo },
+                { path: '/bar', component: Bar }
+            ]
+        })
+
+        var vm = new new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+
+</html>

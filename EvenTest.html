@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input v-on:keyup.enter="submit">
+    </div>
+    <script>
+        var vm = new new Vue({
+            el: '#app',
+            methods: {
+                warn: function (message, event) {
+                    // 现在我们可以访问原生事件对象
+                    if (event) {
+                        event.preventDefault()
+                    }
+                    alert(message)
+                },
+                submit:function(){
+                    alert(1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

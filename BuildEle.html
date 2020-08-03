@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <!--自定义组件模板：循环，将todo转换为循环的item元素-->
+            <test-li
+                v-for="item in processList"
+                v-bind:todo="item"
+            ></test-li>
+        </ol>
+        
+    </div>
+    <script>
+        //组件模板必须卸载VM调度者前面  
+        Vue.component('test-li', {
+            props: ['todo'],
+            template:'<li>{{todo.text}}</li>'
+        });
+        
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                processList:[
+                    {text:'aaa'},
+                    {text:'bbb'},
+                    {text:'ccc'}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

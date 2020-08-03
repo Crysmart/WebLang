@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 数据绑定 -->
+        <p>{{msg}}</p>
+        <span v-bind:title="message">
+            鼠标悬停查看页面加载时间
+        </span>
+        <!--条件是否展示-->
+        <p v-if="seen">
+            你看我我
+        </p>
+        <!--循环
+            在控制台里，输入 app.items.push({ text: '新项目' })，你会发现列表最后添加了一个新项目。
+        -->
+        <ol>
+            <li v-for="item in items">
+                {{item.text}}
+            </li>
+        </ol>
+        <!--v-on跟随事件-->
+        <button v-on:click="pop">点击事件</button>
+        <!--数据双向绑定-->
+        <p>{{write}}</p>
+        <Input v-model="write"></Input>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                msg:'hello world',
+                message:"页面加载："+new Date().toLocaleString(),
+                seen:true,
+                items:[
+                    {text:"测试"},
+                    {text:"测试3"},
+                    {text:"测2"}
+                ],
+                list:[
+                    {id:0,text:"这是第一个啊"},
+                    {id:1,text:"第二个啊"},
+                    {id:2,text:"三啊"}
+                ],
+                write:"write this input"
+            },
+            methods: {
+                pop:function pop() {
+                    alert("upup");
+                }
+            }
+        }); 
+
+        
+    </script>
+</body>
+</html>

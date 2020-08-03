@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <!--如果被阻止了就不能被修改-->
+        <button v-on:click="msg = 'bbb'">点击改变信息</button>
+    </div>
+
+    <div id="app">
+        <p></p>
+        <button v-on:event="handle">击修改上面的状态</button>
+    </div>
+
+    <script>
+        var data = {
+            msg:'aaa'
+        };
+        //阻止修改data的property
+        Object.freeze(data);
+        var vm = new new Vue({
+            el:'#app',
+            data:data,
+            //VM创建后调用
+            created () {
+                console.log("打印啊："+this.msg)
+            }
+        });
+    </script>
+</body>
+</html>

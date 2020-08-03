@@ -13,20 +13,27 @@
     <div id="app">
         <router-link to="/foo">foo</router-link>
         <router-link to="/bar">bar</router-link>
+      <p>
         <router-view></router-view>
+      </p>
+        
     </div>
+    
     <script>
-        var Foo = { template: '<h1>FOOOOOOO</h1>' }
-        var Bar = { template: '<h1>Barrrrrr</h1>' }
+        //模板
+        const Foo = { template: '<div>FOOOOOOOdasdasdasd</div>' };
+        const Bar = { template: '<h1>Barrrrrr</h1>' }
 
-        var router = new VueRouter({
-            routers: [
+        //配置路由
+        const router = new VueRouter({
+            routes: [
                 { path: '/foo', component: Foo },
                 { path: '/bar', component: Bar }
             ]
         })
-
-        var vm = new new Vue({
+        
+        //Vue实例
+        var vm = new Vue({
             el: '#app',
             router
         })

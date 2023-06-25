@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/WebLang/FileContentIndex/502171c1-6851-400b-8e0f-6956dc488efc.vsidx
+.vs/WebLang/FileContentIndex/read.lock
+.vs/WebLang/config/applicationhost.config
+.vs/WebLang/v17/.wsuo
